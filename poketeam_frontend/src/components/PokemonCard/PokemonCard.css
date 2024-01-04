@@ -1,0 +1,111 @@
+.container {
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border: 2px solid #e0ebfc;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 10px;
+}
+
+.header h1{
+    font-weight: 500;
+    color: black;
+    margin: 0px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.image {
+    width: 250px;
+    height: 250px;
+}
+
+
+
+.footer {
+    height: 81px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: "linear-gradient(white 25%, lightgray)";
+    gap: 10px;
+    padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.pokemon-types {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.footer h2{
+    color: #071952; 
+    margin: 0px;
+    overflow: hidden;
+
+}
+
+.button-add {
+    width: 60px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: #B4D4FF;
+    background-color: #B4D4FF;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    text-align: center;
+  }
+
+.button-add:hover{
+    background-color: #7fb6fd;
+}
+  
+.button-remove {
+    width: 60px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: #fa9393;
+    background-color: #fa9393;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    text-align: center;
+  }
+
+.button-remove:hover{
+    background-color: #FF8080;
+}
+
+.button-full {
+    width: 60px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 20px;
+    border: #616161;
+    background-color: #616161;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    text-align: center;
+    cursor: default;
+  }
+
+.button-full:hover{
+    background-color: #616161;
+}

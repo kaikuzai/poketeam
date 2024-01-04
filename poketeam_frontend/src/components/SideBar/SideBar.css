@@ -1,0 +1,72 @@
+.side-bar {
+    position: fixed;
+    background-color: white;
+    border: solid 2px #e0ebfc;
+    height: 100svh;
+    width: 250px; 
+    border-top-right-radius: 20px;
+}
+
+.clear-button {
+    width: 70px; 
+    height: 30px;
+    font-size: large;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #b2cdf6;
+    border-radius: 10px;
+    border: 1px solid #a1c2f5;
+}
+
+.clear-button:hover { 
+    background-color: #82b1f9 ;
+    border: 1px solid #82b1f9
+}
+
+.button-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+.save-button-active {
+    margin-right: 10px;
+    width: 70px; 
+    height: 30px;
+    font-size: large;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #C1E1C1;
+    border-radius: 10px;
+    border: 1px solid #C1E1C1;
+}
+
+.save-button-active:hover { 
+    background-color: #ade1ad ;
+    border: 1px solid #ade1ad
+}
+
+.save-button-inactive {
+    margin-right: 10px;
+    width: 70px; 
+    height: 30px;
+    font-size: large;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #808080;
+    border-radius: 10px;
+    border: 1px solid #808080;
+    cursor: default
+}
+
+
+.addition-text {
+    color: #404258;
+
+}
+
+.addition-text:hover{
+    color: #474E68;
+}

@@ -1,0 +1,36 @@
+h3 {
+    color:black
+}
+
+.poke-info {
+    display: flex;
+    align-items: center;
+}
+
+.poke-display {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.pokemon-image {
+    margin-right: 20px;
+}
+
+.pokemon-list {
+    padding-inline-start: 10px;
+}
+
+.delete-button {
+    margin-right: 10px;
+    background-color: #fa9393; 
+    border-color: #fa9393;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.delete-button:hover {
+    background-color: #fb7474;
+}

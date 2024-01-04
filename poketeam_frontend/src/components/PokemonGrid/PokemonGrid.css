@@ -1,0 +1,39 @@
+.grid { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr  ;
+    gap: 20px 
+}
+
+.poke-filter {
+    margin-bottom: 10px;
+    display: flex;
+    
+}
+
+.clear-btn {
+    margin-left: 20px;
+    width: 90px;
+    background-color: #C1E1C1;
+    color: white; 
+    border: #C1E1C1;
+    border-radius: 15px;
+    font-size: large;
+    
+}
+
+.clear-btn:hover { 
+    background-color: #ade1ad;
+    cursor: pointer;
+}
+
+.clear-btn-inactive {
+    margin-left: 20px;
+    width: 90px;
+    background-color: #808080;
+    color: white; 
+    border: #3b3b3b;
+    border-radius: 15px;
+    font-size: large;
+}
+
