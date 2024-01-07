@@ -37,7 +37,9 @@ const SideBar = ({ handleClear, handleDelete, selectedPokemon }: Props) => {
             </button>
           </div>
         ) : (
-          <h1 className="addition-text"> Add a pokemon! </h1>
+          <div className="addition-div">
+            <h3 className="addition-text"> Add a pokemon! </h3>
+          </div>
         )}
 
         {/* <TypesDisplay selectedPokemon={selectedPokemon} /> */}

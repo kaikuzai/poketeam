@@ -61,9 +61,15 @@
     cursor: default
 }
 
+.addition-div {
+    display:flex; 
+    align-items: center;
+    justify-content: center;
 
+}
 .addition-text {
     color: #404258;
+
 
 }
 

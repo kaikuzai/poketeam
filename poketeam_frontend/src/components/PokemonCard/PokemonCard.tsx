@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./PokemonCard.css";
 import getTypeGradient from "./TypeGradient";
 
@@ -25,7 +26,10 @@ const PokemonCard = ({
       <div className="container">
         <div className="header">
           <h1>Nr: {pokemon_id}</h1>
-          <h1>{pokemon_name}</h1>
+          <NavLink to={`/detail/${pokemon_id}`}>
+            {" "}
+            <h1>{pokemon_name}</h1>{" "}
+          </NavLink>
         </div>
         <div className="image-container">
           <img className="image" src={pokemon_url} alt="" />
@@ -37,28 +41,33 @@ const PokemonCard = ({
               <h2 key={type}>{type}</h2>
             ))}
           </div>
-          <button
-            className={
-              selected_pokemon.includes(pokemon_id)
-                ? "button-remove"
-                : selected_pokemon.length === 6
-                ? "button-full"
-                : "button-add"
-            }
-            onClick={() => {
-              if (!selected_pokemon.includes(pokemon_id)) {
-                handleAdd(pokemon_id);
-              } else {
-                handleDelete(pokemon_id);
+          <div className="action-buttons">
+            <NavLink to={`/detail/${pokemon_id}`}>
+              <button className="info-button"> Info</button>
+            </NavLink>
+            <button
+              className={
+                selected_pokemon.includes(pokemon_id)
+                  ? "button-remove"
+                  : selected_pokemon.length === 6
+                  ? "button-full"
+                  : "button-add"
               }
-            }}
-          >
-            {selected_pokemon.includes(pokemon_id)
-              ? "Remove"
-              : selected_pokemon.length === 6
-              ? "Full"
-              : "Add"}
-          </button>
+              onClick={() => {
+                if (!selected_pokemon.includes(pokemon_id)) {
+                  handleAdd(pokemon_id);
+                } else {
+                  handleDelete(pokemon_id);
+                }
+              }}
+            >
+              {selected_pokemon.includes(pokemon_id)
+                ? "Remove"
+                : selected_pokemon.length === 6
+                ? "Full"
+                : "Add"}
+            </button>
+          </div>
         </div>
       </div>
     </>

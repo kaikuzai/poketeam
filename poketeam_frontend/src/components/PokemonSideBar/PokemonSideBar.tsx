@@ -17,7 +17,7 @@ const PokemonSideBar = ({ handleDelete, selectedPokemon }: Props) => {
             <div className="poke-display">
               <div className="poke-info">
                 <img
-                  className="pokemon-image"
+                  className="pokemon-sidebar-image"
                   src={data.pokemon_url}
                   alt=""
                   width={25}

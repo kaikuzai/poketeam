@@ -5,6 +5,11 @@
     border: 2px solid #e0ebfc;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    transition: box-shadow 0.6s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 5px 5px 5px 5px #e0ebfc;
 }
 
 .header{
@@ -58,16 +63,23 @@
 
 }
 
+.action-buttons {
+    display: flex;
+    gap: 2px; 
+    margin-right: 5px;
+    overflow: hidden;
+}
+
 .button-add {
     width: 60px;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 0px;
     border-radius: 20px;
     border: #B4D4FF;
     background-color: #B4D4FF;
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 0px;
     text-align: center;
   }
 
@@ -78,13 +90,13 @@
 .button-remove {
     width: 60px;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 0px;
     border-radius: 20px;
     border: #fa9393;
     background-color: #fa9393;
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 0px;
     text-align: center;
   }
 
@@ -95,17 +107,35 @@
 .button-full {
     width: 60px;
     height: 30px;
-    margin-left: 10px;
+    margin-left: 0px;
     border-radius: 20px;
     border: #616161;
     background-color: #616161;
     color: white;
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 0px;
     text-align: center;
     cursor: default;
   }
 
 .button-full:hover{
     background-color: #616161;
+}
+
+.info-button {
+    width: 60px;
+    height: 30px;
+    margin-left: 0px;
+    border-radius: 20px;
+    border: #C1E1C1;
+    background-color: #C1E1C1;
+    color: white;
+    cursor: pointer;
+    margin-right: 0px; 
+    text-align: center;
+}
+
+.info-button:hover{
+    border: #ade1ad;
+    background-color: #ade1ad;
 }
