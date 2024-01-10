@@ -3,15 +3,15 @@ import usePokemon from "../../hooks/usePokemon";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import PokemonFilter from "../PokemonFilter/PokemonFilter";
 import "./PokemonGrid.css";
+import { useSelector } from "react-redux";
+import { Rootstate } from "../../state/store";
 
-interface Props {
-  addPokemon: (pokemon_id: number) => void;
-  removePokemon: (pokemon_id: number) => void;
-  selectedPokemon: number[];
-}
-
-const PokemonGrid = ({ removePokemon, addPokemon, selectedPokemon }: Props) => {
+const PokemonGrid = () => {
   const { data } = usePokemon();
+
+  const selectedPokemon = useSelector(
+    (state: Rootstate) => state.poketeam.selectedPokemon
+  );
 
   const [selectedType, setSelectedType] = useState<{
     value: string;
@@ -68,12 +68,6 @@ const PokemonGrid = ({ removePokemon, addPokemon, selectedPokemon }: Props) => {
             selected_pokemon={selectedPokemon}
             pokemon_types={pokemon.pokemon_types}
             pokemon_url={pokemon.pokemon_url}
-            handleDelete={(pokemon_id) => {
-              removePokemon(pokemon_id);
-            }}
-            handleAdd={(pokemon_id) => {
-              addPokemon(pokemon_id);
-            }}
           />
         ))}
       </div>

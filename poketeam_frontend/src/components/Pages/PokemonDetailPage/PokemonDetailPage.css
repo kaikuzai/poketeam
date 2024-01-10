@@ -1,9 +1,91 @@
-.intro-text {
+.pokemon-detail-container {
+    width: 99%; /* You can adjust the width as needed */
+    height: 97vh; /* You can adjust the height as needed */
+    background-color: white;
+    border: 2px solid #e0ebfc;
+    border-radius: 15px;
     color: black;
-}
+    display: flex
+  }
+  
+.pokemon-side-info-container {
+    margin-top: 7px;
+    margin-left: 5px;
+    width: 30%;
+    height: 97%;
+    border-radius: 15px;
+  }
 
+  .pokemon-card-container {
+    background-color: white;
+    border: 2px solid #F6F6F6;
+    border-radius: 15px;
+  }
 
-.pokemon-image {
-    width: 200px;
-    height: 200px;
+  .pokemon-card-title {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pokemon-card-title h1{ 
+    color: rgb(56, 56, 56); 
+
+  }
+
+  .pokemon-number {
+    margin-left: 20px
+  }
+
+  .pokemon-name {
+    margin-left: 20px
+  }
+
+  .pokemon-card-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pokemon-card-image {
+    width: 65%;
+    height: 65%;
+  }
+
+  .pokemon-specific-details-container {
+    margin-top: 5px;
+    border: 2px solid #F6F6F6;
+    border-radius: 15px ;
+
+  }
+
+  .pokemon-abilites {
+    margin-left: 10px;
+    display: flex;
+    gap: 5px;
+  }
+
+.pokemon-main-info-container {
+    margin-top: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 70%;
+    height: 97%;
+    background-color: white;
+    border-radius: 15px;
+  }
+
+.pokemon-description-container { 
+    height: 50%;
+    background-color: white;
+    border: 2px solid #F6F6F6;
+    border-radius: 15px;
+  }
+
+.pokemon-evolution-container { 
+    margin-top: 5px;
+    height: 48.5%;
+    background-color: white;
+    border: 2px solid #F6F6F6;
+    border-radius: 15px;
 }

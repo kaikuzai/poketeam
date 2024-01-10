@@ -1,27 +1,27 @@
+import { useSelector } from "react-redux";
 import PokemonSideBar from "../PokemonSideBar/PokemonSideBar";
 // import TypesDisplay from "../TypesDisplay/TypesDisplay";
+import { Rootstate } from "../../state/store";
 import "./SideBar.css";
+import { useDispatch } from "react-redux";
+import { clearPokemon } from "../../state/poketeam/poketeamSlice";
 
-interface Props {
-  selectedPokemon: number[];
-  handleDelete: (pokemon_id: number) => void;
-  handleClear: () => void;
-}
+const SideBar = () => {
+  const selectedPokemon = useSelector(
+    (state: Rootstate) => state.poketeam.selectedPokemon
+  );
+  const dispatch = useDispatch();
 
-const SideBar = ({ handleClear, handleDelete, selectedPokemon }: Props) => {
   return (
     <>
       <div className="side-bar">
-        <PokemonSideBar
-          handleDelete={handleDelete}
-          selectedPokemon={selectedPokemon}
-        />
+        <PokemonSideBar />
         {selectedPokemon.length !== 0 ? (
           <div className="button-field">
             <button
               disabled={selectedPokemon.length === 0}
               className="clear-button"
-              onClick={handleClear}
+              onClick={() => dispatch(clearPokemon())}
             >
               Clear
             </button>

@@ -6,6 +6,7 @@ interface Pokemon {
   pokemon_id: number;
   pokemon_name: string;
   pokemon_types: string[];
+  pokemon_abilities: string[];
   pokemon_url: string;
 }
 

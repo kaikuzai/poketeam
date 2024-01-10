@@ -2,14 +2,17 @@ import { NavLink } from "react-router-dom";
 import "./PokemonCard.css";
 import getTypeGradient from "./TypeGradient";
 
+import { addPokemon, removePokemon } from "../../state/poketeam/poketeamSlice";
+import { useSelector } from "react-redux";
+import { Rootstate } from "../../state/store";
+import { useDispatch } from "react-redux";
+
 interface Props {
   pokemon_name: string;
   pokemon_id: number;
   pokemon_types: string[];
   pokemon_url: string;
   selected_pokemon: number[];
-  handleAdd: (pokemon_id: number) => void;
-  handleDelete: (pokemon_id: number) => void;
 }
 
 const PokemonCard = ({
@@ -18,9 +21,12 @@ const PokemonCard = ({
   pokemon_id,
   pokemon_types,
   pokemon_url,
-  handleDelete,
-  handleAdd,
 }: Props) => {
+  const selectedPokemon = useSelector(
+    (state: Rootstate) => state.poketeam.selectedPokemon
+  );
+  const dispatch = useDispatch();
+
   return (
     <>
       <div className="container">
@@ -47,17 +53,19 @@ const PokemonCard = ({
             </NavLink>
             <button
               className={
-                selected_pokemon.includes(pokemon_id)
+                selectedPokemon.includes(pokemon_id)
                   ? "button-remove"
                   : selected_pokemon.length === 6
                   ? "button-full"
                   : "button-add"
               }
               onClick={() => {
-                if (!selected_pokemon.includes(pokemon_id)) {
-                  handleAdd(pokemon_id);
+                if (!selectedPokemon.includes(pokemon_id)) {
+                  console.log("click registered add");
+                  dispatch(addPokemon(pokemon_id));
                 } else {
-                  handleDelete(pokemon_id);
+                  console.log("click registered remove");
+                  dispatch(removePokemon(pokemon_id));
                 }
               }}
             >

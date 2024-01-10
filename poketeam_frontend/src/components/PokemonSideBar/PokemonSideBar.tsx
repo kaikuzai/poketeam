@@ -1,13 +1,17 @@
+import { useSelector } from "react-redux";
 import usePokemon from "../../hooks/usePokemon";
 import "./PokemonSideBar.css";
+import { Rootstate } from "../../state/store";
+import { useDispatch } from "react-redux";
+import { removePokemon } from "../../state/poketeam/poketeamSlice";
 
-interface Props {
-  selectedPokemon: number[];
-  handleDelete: (pokemon_id: number) => void;
-}
-
-const PokemonSideBar = ({ handleDelete, selectedPokemon }: Props) => {
+const PokemonSideBar = () => {
   const { data } = usePokemon();
+
+  const selectedPokemon = useSelector(
+    (state: Rootstate) => state.poketeam.selectedPokemon
+  );
+  const dispatch = useDispatch();
 
   return (
     <ul className="pokemon-list">
@@ -27,7 +31,7 @@ const PokemonSideBar = ({ handleDelete, selectedPokemon }: Props) => {
               </div>
               <div className="poke-delete">
                 <button
-                  onClick={() => handleDelete(data.pokemon_id)}
+                  onClick={() => dispatch(removePokemon(data.pokemon_id))}
                   className="delete-button"
                 >
                   {" "}
