@@ -14,14 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include 
 from poketeam_bck import views 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # API endpoints 
     path('pokemon/', views.getAllPokemon, name='function-all-Pokemon'),
     path('pokemon/<int:pokemon_id>', views.getPokemon, name='function-specific-Pokemon'),
     path('pokemon-types/', views.getAllTypes, name='function-all-types'),
     path('pokemon-types/<str:type_name>', views.getType, name='function-specific-type'),
-    path('api/<int:pokemon_id>/', views.PokemonModelViewset.as_view({'get':'retrieve'}), name='pokemon-detail')
+    path('api/<int:pokemon_id>/', views.PokemonModelViewset.as_view({'get':'retrieve'}), name='pokemon-detail'),
+
+    # Authentication 
+    path('api-auth/', include('rest_framework.urls')),
+    path('')
 ]

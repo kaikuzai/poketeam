@@ -28,7 +28,7 @@ const useSinglePokemon = (pokemon_id: number) => {
       }
     };
     fetchData();
-  }, [data]);
+  }, [pokemon_id]);
 
   return { data, loading, error };
 };

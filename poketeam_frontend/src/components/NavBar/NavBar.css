@@ -1,0 +1,14 @@
+.nav-container {
+    height: 50px;
+
+    background-color: white;
+    margin-bottom: 20px; 
+    transition: box-shadow 0.4s ease-in-out;
+    border:  2px solid #e0ebfc;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.nav-container:hover {
+    box-shadow: 2px 2px 2px 2px #e0ebfc;
+}

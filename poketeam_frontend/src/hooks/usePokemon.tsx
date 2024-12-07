@@ -12,7 +12,7 @@ interface Pokemon {
 const usePokemon = () => {
   const [data, setData] = useState<Pokemon[]>([]);
   const [error, setError] = useState<AxiosError | null>(null);
-  const [isLoading, setLoading] = useState<Boolean>(true);
+  const [isLoading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
