@@ -1,9 +1,11 @@
-import {configureStore} from "@reduxjs/toolkit" 
+import { configureStore } from "@reduxjs/toolkit"
 import poketeamReducer from './poketeam/poketeamSlice'
+import authorizationReducer from './authorization/authorizationSlice'
 
 export const store = configureStore({
     reducer: {
         poketeam: poketeamReducer,
+        authorization: authorizationReducer,
     }
 })
 
