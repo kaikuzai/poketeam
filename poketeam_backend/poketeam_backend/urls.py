@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include 
+from django.views.generic import TemplateView
+from django.urls import path, include, re_path
 from poketeam_bck import views 
 
 urlpatterns = [
@@ -27,7 +28,9 @@ urlpatterns = [
     path('pokemon-types/<str:type_name>', views.getType, name='function-specific-type'),
     path('api/<int:pokemon_id>/', views.PokemonModelViewset.as_view({'get':'retrieve'}), name='pokemon-detail'),
 
-    # Authentication 
+    # Authentication and Authorization
     path('api-auth/', include('rest_framework.urls')),
-    path('')
+    path('accounts/', include('accounts.urls')),
+    path('profiles/', include('user_profiles.urls')),
 ]
+
