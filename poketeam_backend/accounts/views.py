@@ -69,7 +69,7 @@ class GetCSFRToken(APIView):
     
 
 # Login view 
-# @method_decorator(csrf_protect, name='dispatch')
+# @method_decorator(csrf_protect, name='dispatch') // fix later 
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
     
@@ -90,9 +90,10 @@ class LoginView(APIView):
             except Exception as e:
                 print(f'Something went wrong authenticating {username}', e)
         else:
-            return Response({'error': 'Failed authentication failed'})
+            return Response({'error': 'Failed authentication'})
         
 
+# Logout View 
 class LogoutView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 

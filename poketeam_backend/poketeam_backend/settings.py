@@ -149,6 +149,7 @@ CSRF_COOKIE_SECURE = True
 CSRF_USE_SESSIONS = True 
 CSRF_COOKIE_DOMAIN = None
 
+# Rest Framework Settings 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',

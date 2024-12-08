@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+venv
 
 
 # Distribution / packaging
@@ -66,3 +67,4 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+poketeam_backend/venv
