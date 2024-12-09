@@ -7,13 +7,13 @@ A full-stack application where users can create their unique first generation po
 - Django REST Framework     API-endpoints
 - React Vite                Frontend
 - Redux                     State management
-- 
 
 ## Features 
 - Django backend has custom function which populates local PostgreSQL database
 - Custom API endpoints with validation
 - Automatic User Profile Class
 - User authentication & authorization
+- You can log into an account that you've created 
 - Make a pokemon team!
 
 ## Future features 
@@ -67,5 +67,8 @@ npm run dev
 You should now be able to see on which port your application is running. Simply add the address to your chrome browser and play around in the pokemon application. 
 
 
+#### Account creation
+To create an account make sure you're on `127.0.0.1` and NOT `localhost` after that navigate to either `/register` or `/login`
+- 
 
 
