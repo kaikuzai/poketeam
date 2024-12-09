@@ -1,17 +1,35 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import useRegisterUser from "../../hooks/User/useRegister";
+
+interface Response {
+  response: string
+}
 
 const Register: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRepassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [response, setResponse] = useState<Response>()
+  const {register} = useRegisterUser();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== repassword) {
       alert("Passwords do not match");
       return;
     }
     console.log("Registration Data:", { username, password, repassword });
+
+    const response = await register(username, password, repassword);
+    setResponse(response)
+    if (response.response == 'user was created successfully!'){
+      navigate('/')
+      alert(`Welcome ${username} start making your team`)
+    }
   };
 
   return (
@@ -150,6 +168,17 @@ const Register: React.FC = () => {
         >
           Register
         </button>
+        {response && (
+          <p
+            style={{
+              color: "green",
+              marginTop: "10px",
+              textAlign: "center",
+            }}
+          >
+            {response.response}
+          </p>
+        )}
       </form>
     </div>
   );

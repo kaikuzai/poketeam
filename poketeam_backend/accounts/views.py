@@ -34,14 +34,14 @@ class SignupView(APIView):
 
         username = data['username']
         password = data['password']
-        repassword = data['re-password']
+        repassword = data['repassword']
 
         if password == repassword:
             if User.objects.filter(username=username).exists():
-                return Response({'error': 'This username already exists'})
+                return Response({'response': 'This username already exists'})
             else:
                 if len(password) < 6:
-                    return Response({'error':'Password must have atleast 6 characters'})
+                    return Response({'response':'Password must have atleast 6 characters'})
                 else:
                     user = User.objects.create_user(username=username, password=password)
                     user.save()
@@ -51,10 +51,10 @@ class SignupView(APIView):
                     user_profile = UserProfileModel(user=user)
                     user_profile.save()
 
-                    return Response({'success': 'user was created successfully!'})
+                    return Response({'response': 'user was created successfully!'})
 
         else:
-            return Response({'error': 'Passwords do not match'})
+            return Response({'response': 'Passwords do not match'})
 
 
 
