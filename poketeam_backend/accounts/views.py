@@ -69,7 +69,7 @@ class GetCSFRToken(APIView):
     
 
 # Login view 
-# @method_decorator(csrf_protect, name='dispatch') // fix later 
+@method_decorator(csrf_protect, name='dispatch') 
 class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
     
@@ -86,11 +86,11 @@ class LoginView(APIView):
         if user is not None:
             try:
                 login(request, user)
-                return Response({'success': f'{user.username} is logged in'})
+                return Response({'response': 'Succeeded'})
             except Exception as e:
                 print(f'Something went wrong authenticating {username}', e)
         else:
-            return Response({'error': 'Failed authentication'})
+            return Response({'response': 'Failed'})
         
 
 # Logout View 

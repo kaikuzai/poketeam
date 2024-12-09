@@ -31,7 +31,7 @@ const Register: React.FC = () => {
           flexDirection: "column",
           width: "350px",
           padding: "30px",
-          backgroundColor: "#ffffff", // White background
+          backgroundColor: "#ffffff", 
           borderRadius: "8px",
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
         }}
@@ -88,6 +88,7 @@ const Register: React.FC = () => {
         </label>
         <input
           type="password"
+          minLength={6}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter your password"
@@ -116,6 +117,7 @@ const Register: React.FC = () => {
         </label>
         <input
           type="password"
+          minLength={6}
           value={repassword}
           onChange={(e) => setRepassword(e.target.value)}
           placeholder="Re-enter your password"

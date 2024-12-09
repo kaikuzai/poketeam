@@ -1,6 +1,8 @@
 import { useState } from "react";
 import apiClient from "../../services/api-client";
 import { AxiosError } from "axios";
+import Cookies from "js-cookie";
+
 
 interface Response {
   response: string;
@@ -9,31 +11,35 @@ interface Response {
 
 
 const useLoginUser = () => {
-  const [data, setData] = useState<Response | null>(null);
-  const [error, setError] = useState<AxiosError | null>(null);
-  const [isLoading, setLoading] = useState<boolean>(false);
+
 
   const login = async (username: string, password: string) => {
     // Not 100% Sure if this works correctly
-    setLoading(true);
-    setError(null);
-    setData(null);
+
+
+    const body = {
+      username,
+      password,
+    }
+
+    const config = {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'X-CSRFToken': Cookies.get('csrftoken')
+      }
+    }
 
     try {
-      const response = await apiClient.post<Response>("accounts/login/", {
-        username,
-        password,
-      });
-
-      setData(response.data);
+      const response = await apiClient.post<any>("accounts/login/", body, config);
+      return response.data
     } catch (error: any) {
-      setError(error.response?.data?.message || "Login failed.");
+      console.log(error)
     } finally {
-      setLoading(false);
     }
   };
 
-  return { login, data, error, isLoading };
+  return { login };
 };
 
 export default useLoginUser;

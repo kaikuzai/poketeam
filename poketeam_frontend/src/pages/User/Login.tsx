@@ -1,10 +1,19 @@
 import React, { useState } from "react";
 import useLoginUser from "../../hooks/User/useLogin";
+import CSRFToken from "../../services/CSRFToken";
+import { useNavigate } from "react-router-dom";
+
+interface Response {
+  response: string
+}
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { login, data, isLoading, error } = useLoginUser();
+  const [response, setResponse] = useState<Response>();
+  const { login } = useLoginUser();
+
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault(); // Prevent the page from reloading
@@ -12,7 +21,12 @@ const Login: React.FC = () => {
 
     // Need to impliment a way to clear data before request 
     await login(username, password);
-    console.log(data); 
+    const response = await login(username, password);
+    await console.log('response value',response); 
+    setResponse(response)
+    if (response.response == 'Succeeded') {
+      navigate("/")
+    }
   };
 
   return (
@@ -37,6 +51,7 @@ const Login: React.FC = () => {
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
         }}
       >
+        <CSRFToken />
         <h2
           style={{
             textAlign: "center",
@@ -109,31 +124,30 @@ const Login: React.FC = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          disabled={!username || !password || isLoading} 
+          disabled={!username || !password} 
           style={{
             padding: "10px",
-            backgroundColor: username && password && !isLoading ? "#28a745" : "#ccc", 
+            backgroundColor: username && password  ? "#28a745" : "#ccc", 
             color: "#ffffff",
             border: "none",
             borderRadius: "5px",
             fontWeight: "bold",
-            cursor: username && password && !isLoading ? "pointer" : "not-allowed",
+            cursor: username && password ? "pointer" : "not-allowed",
             transition: "background-color 0.3s",
           }}
         >
-          {isLoading ? "Logging in..." : "Login"}
+          Login
         </button>
 
-        {/* Display Errors */}
-        {error && (
+        {response && (
           <p
             style={{
-              color: "red",
+              color: "green",
               marginTop: "10px",
               textAlign: "center",
             }}
           >
-            {error?.message}
+            {response.response}
           </p>
         )}
       </form>
