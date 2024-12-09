@@ -1,12 +1,24 @@
 import Cookies from "js-cookie";
+import useAuthorizationCheck from "../../hooks/User/useAuthorization";
+import { useEffect, useState } from "react";
 
-// DOESN'T WORK PROPERLY 
-const getCSRFToken = () => {
-    const match = document.cookie.match(/(^|;)\s*csrf_token=([^;]*)/);
-    return match ? match[2] : null;
-  };
+
+
 
 const AuthenticationCheck = () => {
+  const [authorizationStatus, setAuthorizationStatus] = useState<any>(); 
+ 
+  const {fetchAuthorization} = useAuthorizationCheck()
+  
+  useEffect(() => {
+      const getStatus = async () => {
+      const response = await fetchAuthorization(); 
+      setAuthorizationStatus(response)
+    };
+    getStatus(); 
+  },[])
+ 
+  
   return (
     <div
       style={{
@@ -32,7 +44,7 @@ const AuthenticationCheck = () => {
           Here we have the CSRF cookie: <strong>{Cookies.get("csrftoken") || "Not found"}</strong>
         </p>
         <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
-          Here we have the CSRF cookie: <strong>{ getCSRFToken() || "Not found"}</strong>
+          The user who is making this request: <strong>{authorizationStatus? authorizationStatus.response : 'nddfaefull'}</strong>
         </p>
         <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
           Additional authentication info can go here.

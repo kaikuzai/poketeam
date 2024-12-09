@@ -19,9 +19,9 @@ class CheckAuthenticatedView(APIView):
         name = request.user 
 
         if isAuthenticated:
-            return Response({'isAuthenticated': f'True as {name}'})
+            return Response({'response': f'True as {name}'})
         else:
-            return Response({'isAuthenticated':'False'})
+            return Response({'response':'False'})
 
 
 # Sign up 

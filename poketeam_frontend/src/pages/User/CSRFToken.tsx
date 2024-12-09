@@ -1,8 +1,9 @@
-import useCSRFToken from '../../hooks/User/useCSRFToken'
+import CSRFToken from "../../services/CSRFToken"
+
 
 const GetCSRFToken = () => {
 
-    useCSRFToken();
+    CSRFToken();
   return (
     <p>
         You got your token!
