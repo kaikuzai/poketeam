@@ -1,15 +1,17 @@
 import apiClient from "../../services/api-client";
 import Cookies from "js-cookie";
 import { fetchOrReplaceCSRF } from "../../services/Cookies/CSRFToken";
+import { useDispatch } from "react-redux";
+import { setAuthorizationLogout } from "../../state/authorization/authorizationSlice";
 
 interface Response {
     response: string; 
 }
 
 const useLogoutUser = () => {
+    const dispatch = useDispatch();
 
     const logout = async () => {
-
         await fetchOrReplaceCSRF();
 
         const config = {
@@ -23,6 +25,7 @@ const useLogoutUser = () => {
         try {
             await apiClient.post<Response>("accounts/logout/", null, config);
             await Cookies.remove('csrftoken')
+            await dispatch(setAuthorizationLogout())
         } catch (error: any) {
             console.error("Error logging out:", error);
         } finally {

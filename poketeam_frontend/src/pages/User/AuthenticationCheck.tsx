@@ -14,17 +14,17 @@ interface Response {
 const AuthenticationCheck = () => {
   const [authorizationStatus, setAuthorizationStatus] = useState<Response>(); 
   const {fetchAuthorization} = useAuthorizationCheck()
+  const { login } = useLoginUser();
+  const { logout } = useLogoutUser();
 
 
   const handleLogin = async () => {
-    const { login } = useLoginUser();
     await login('Ash', 'wachtwoord')
     const response = await fetchAuthorization();
     setAuthorizationStatus(response)
    }
    
    const handleLogout = async () => {
-     const { logout } = useLogoutUser();
     await logout();
      const response = await fetchAuthorization();
      setAuthorizationStatus(response)

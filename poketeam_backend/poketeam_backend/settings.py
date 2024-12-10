@@ -150,7 +150,7 @@ CSRF_COOKIE_DOMAIN = 'localhost'
 CSRF_TRUSTED_ORIGINS = ['http://localhost:5173/', 'http://127.0.0.1:5173', 'http://127.0.0.1:5174']
 
 # SESSION SETTINGS 
-SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = False
 
 # Rest Framework Settings 
 REST_FRAMEWORK = {

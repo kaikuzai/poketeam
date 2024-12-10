@@ -7,6 +7,7 @@ interface Response {
 }
 
 const Login: React.FC = () => {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [response, setResponse] = useState<Response>();
@@ -15,7 +16,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate(); 
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent the page from reloading
+    e.preventDefault();
     console.log("Submitted:", { username, password });
 
     // Need to impliment a way to clear data before request 
@@ -25,6 +26,8 @@ const Login: React.FC = () => {
     setResponse(response)
     if (response.response == 'Succeeded') {
       navigate("/")
+    } else {
+      alert("Can't log you in, please try again")
     }
   };
 
