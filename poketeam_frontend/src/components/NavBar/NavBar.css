@@ -1,14 +1,67 @@
 .nav-container {
+    display: flex;
+    justify-content: flex-end;
+    /* Align content to the right */
+    align-items: center;
+    /* Center items vertically */
     height: 50px;
-
+    padding: 0 20px;
+    /* Add some padding to the sides */
     background-color: white;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
     transition: box-shadow 0.4s ease-in-out;
-    border:  2px solid #e0ebfc;
+    border: 2px solid #e0ebfc;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
 .nav-container:hover {
-    box-shadow: 2px 2px 2px 2px #e0ebfc;
+    box-shadow: 2px 2px 5px 2px #e0ebfc;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* Space between items */
+}
+
+.nav-greeting {
+    font-size: 14px;
+    font-weight: bold;
+    color: #4a4a4a;
+    /* Dark gray text */
+    margin-right: 10px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    /* Blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.nav-button.logout {
+    background-color: #dc3545;
+    /* Red for logout */
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}
+
+.nav-button.logout:hover {
+    background-color: #a71d2a;
+    /* Darker red on hover */
 }

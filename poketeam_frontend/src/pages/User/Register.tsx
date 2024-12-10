@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useRegisterUser from "../../hooks/User/useRegister";
 
 interface Response {
-  response: string
+  response: string;
 }
 
 const Register: React.FC = () => {
@@ -11,8 +11,8 @@ const Register: React.FC = () => {
   const [password, setPassword] = useState("");
   const [repassword, setRepassword] = useState("");
 
-  const [response, setResponse] = useState<Response>()
-  const {register} = useRegisterUser();
+  const [response, setResponse] = useState<Response>();
+  const { register } = useRegisterUser();
 
   const navigate = useNavigate();
 
@@ -25,10 +25,14 @@ const Register: React.FC = () => {
     console.log("Registration Data:", { username, password, repassword });
 
     const response = await register(username, password, repassword);
-    setResponse(response)
-    if (response.response == 'user was created successfully!'){
-      navigate('/login')
+    setResponse(response);
+    if (response.response === "user was created successfully!") {
+      navigate("/login");
     }
+  };
+
+  const handleLoginNavigate = () => {
+    navigate("/login");
   };
 
   return (
@@ -48,7 +52,7 @@ const Register: React.FC = () => {
           flexDirection: "column",
           width: "350px",
           padding: "30px",
-          backgroundColor: "#ffffff", 
+          backgroundColor: "#ffffff",
           borderRadius: "8px",
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
         }}
@@ -85,8 +89,8 @@ const Register: React.FC = () => {
             padding: "10px",
             border: "1px solid #ccc",
             borderRadius: "5px",
-            backgroundColor: "#ffffff", // White input background
-            color: "#000", // Black text
+            backgroundColor: "#ffffff",
+            color: "#000",
             fontSize: "14px",
           }}
           required
@@ -114,8 +118,8 @@ const Register: React.FC = () => {
             padding: "10px",
             border: "1px solid #ccc",
             borderRadius: "5px",
-            backgroundColor: "#ffffff", // White input background
-            color: "#000", // Black text
+            backgroundColor: "#ffffff",
+            color: "#000",
             fontSize: "14px",
           }}
           required
@@ -143,8 +147,8 @@ const Register: React.FC = () => {
             padding: "10px",
             border: "1px solid #ccc",
             borderRadius: "5px",
-            backgroundColor: "#ffffff", // White input background
-            color: "#000", // Black text
+            backgroundColor: "#ffffff",
+            color: "#000",
             fontSize: "14px",
           }}
           required
@@ -153,20 +157,22 @@ const Register: React.FC = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          disabled={!username || !password || !repassword} // Disabled until all fields are filled
+          disabled={!username || !password || !repassword}
           style={{
             padding: "10px",
-            backgroundColor: username && password && repassword ? "#28a745" : "#ccc", // Green when all fields are filled
+            backgroundColor: username && password && repassword ? "#28a745" : "#ccc",
             color: "#ffffff",
             border: "none",
             borderRadius: "5px",
             fontWeight: "bold",
-            cursor: username && password && repassword ? "pointer" : "not-allowed", // Pointer if enabled
+            cursor: username && password && repassword ? "pointer" : "not-allowed",
             transition: "background-color 0.3s",
           }}
         >
           Register
         </button>
+
+        {/* Response Message */}
         {response && (
           <p
             style={{
@@ -178,6 +184,25 @@ const Register: React.FC = () => {
             {response.response}
           </p>
         )}
+
+        {/* Login Button */}
+        <button
+          type="button"
+          onClick={handleLoginNavigate}
+          style={{
+            marginTop: "10px",
+            padding: "10px",
+            backgroundColor: "#007bff",
+            color: "#ffffff",
+            border: "none",
+            borderRadius: "5px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            transition: "background-color 0.3s",
+          }}
+        >
+          Login
+        </button>
       </form>
     </div>
   );
