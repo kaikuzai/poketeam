@@ -75,9 +75,6 @@ const AuthenticationCheck = () => {
         <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
           user is anonymous: <strong>{authorizationStatus? String(authorizationStatus.is_anonymous) : 'error'}</strong>
         </p>
-        <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
-          Additional authentication info can go here.
-        </p>
         <div style={{ marginTop: "20px", display: "flex", gap: "10px", justifyContent: "center" }}>
   <button
     onClick={() => handleLogin()}

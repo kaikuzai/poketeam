@@ -1,7 +1,7 @@
 .nav-container {
     display: flex;
-    justify-content: flex-end;
-    /* Align content to the right */
+    justify-content: space-between;
+    /* Space between text and buttons */
     align-items: center;
     /* Center items vertically */
     height: 50px;
@@ -19,24 +19,22 @@
     box-shadow: 2px 2px 5px 2px #e0ebfc;
 }
 
-.nav-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    /* Space between items */
-}
-
 .nav-greeting {
-    font-size: 14px;
+    flex: 1;
+    /* Take up available space to allow centering */
+    text-align: center;
+    /* Center the text horizontally */
+    font-size: 20px;
+    /* Larger text size */
     font-weight: bold;
     color: #4a4a4a;
     /* Dark gray text */
-    margin-right: 10px;
 }
 
 .nav-buttons {
     display: flex;
     gap: 10px;
+    /* Space between buttons */
 }
 
 .nav-button {

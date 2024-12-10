@@ -14,11 +14,11 @@ const NavBar: React.FC = () => {
   const isAuthorized = useSelector((state: Rootstate) => state.authorization.authorization.isAuthenticated);
 
   const handleAccountStatusButton = async () => {
-    if(isAuthorized){
-      await logout(); 
+    if (isAuthorized) {
+      await logout();
       navigate("/login");
     } else {
-      navigate("/login")
+      navigate("/login");
     }
   };
 
@@ -28,26 +28,19 @@ const NavBar: React.FC = () => {
 
   return (
     <div className="nav-container">
-      <div className="nav-content">
-        {!isAuthorized &&  
-        <span className="nav-greeting">
-          Hey Trainer!
-        </span>}
+      {/* Greeting centered */}
+      <span className="nav-greeting">
+        {!isAuthorized ? "Hey Trainer!" : `Hey Trainer ${user || ""}!`}
+      </span>
 
-        {isAuthorized &&  
-        <span className="nav-greeting">
-          Hey Trainer <strong> {user} </strong>!
-        </span>}
-
-
-        <div className="nav-buttons">
-          <button className="nav-button" onClick={handleViewTeams} disabled={!isAuthorized}>
-            View Teams
-          </button>
-          <button className="nav-button logout" onClick={handleAccountStatusButton}>
-            {isAuthorized ? 'logout' : 'login'}
-          </button>
-        </div>
+      {/* Buttons aligned to the right */}
+      <div className="nav-buttons">
+        <button className="nav-button" onClick={handleViewTeams}>
+          View Teams
+        </button>
+        <button className="nav-button logout" onClick={handleAccountStatusButton}>
+          {isAuthorized ? "Logout" : "Login"}
+        </button>
       </div>
     </div>
   );
