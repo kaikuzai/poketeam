@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import useLoginUser from "../../hooks/User/useLogin";
-import CSRFToken from "../../services/CSRFToken";
 import { useNavigate } from "react-router-dom";
 
 interface Response {
@@ -51,7 +50,6 @@ const Login: React.FC = () => {
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
         }}
       >
-        <CSRFToken />
         <h2
           style={{
             textAlign: "center",

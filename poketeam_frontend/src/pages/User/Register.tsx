@@ -27,8 +27,7 @@ const Register: React.FC = () => {
     const response = await register(username, password, repassword);
     setResponse(response)
     if (response.response == 'user was created successfully!'){
-      navigate('/')
-      alert(`Welcome ${username} start making your team`)
+      navigate('/login')
     }
   };
 

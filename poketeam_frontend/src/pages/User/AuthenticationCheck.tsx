@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import useAuthorizationCheck from "../../hooks/User/useAuthorization";
 import { useEffect, useState } from "react";
 import useLoginUser from "../../hooks/User/useLogin";
+import useLogoutUser from "../../hooks/User/useLogout";
 
 interface Response {
   name: string, 
@@ -10,20 +11,24 @@ interface Response {
   is_anonymous: boolean
 }
 
-const handleLogin = async () => {
- const { login } = useLoginUser()
- const response = await login('Ash', 'wachtwoord')
- console.log(response.data)
-}
-
-const handleLogout = async () => {
-  
-}
-
 const AuthenticationCheck = () => {
   const [authorizationStatus, setAuthorizationStatus] = useState<Response>(); 
- 
   const {fetchAuthorization} = useAuthorizationCheck()
+
+
+  const handleLogin = async () => {
+    const { login } = useLoginUser();
+    await login('Ash', 'wachtwoord')
+    const response = await fetchAuthorization();
+    setAuthorizationStatus(response)
+   }
+   
+   const handleLogout = async () => {
+     const { logout } = useLogoutUser();
+    await logout();
+     const response = await fetchAuthorization();
+     setAuthorizationStatus(response)
+   }
   
   useEffect(() => {
       const getStatus = async () => {
@@ -55,8 +60,11 @@ const AuthenticationCheck = () => {
         }}
       >
         <h2 style={{ marginBottom: "20px", color: "#333" }}>Authentication Status</h2>
-        <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
+        <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5", wordBreak: 'break-word' }}>
           Here we have the CSRF cookie: <strong>{Cookies.get("csrftoken") || "Not found"}</strong>
+        </p>
+        <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5", wordBreak: 'break-word' }}>
+          Here we have the session id: <strong>{Cookies.get("sessionid") || "Not found"}</strong>
         </p>
         <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
           The user who is making this request: <strong>{authorizationStatus? authorizationStatus.name : 'error'}</strong>
@@ -72,9 +80,7 @@ const AuthenticationCheck = () => {
         </p>
         <div style={{ marginTop: "20px", display: "flex", gap: "10px", justifyContent: "center" }}>
   <button
-    onClick={() => {console.log("Login clicked");
-                  handleLogin();
-    }}
+    onClick={() => handleLogin()}
     style={{
       padding: "10px 20px",
       backgroundColor: "#28a745",
@@ -87,7 +93,7 @@ const AuthenticationCheck = () => {
     Login
   </button>
   <button
-    onClick={() => console.log("Logout clicked")}
+    onClick={handleLogout}
     style={{
       padding: "10px 20px",
       backgroundColor: "#dc3545",

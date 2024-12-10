@@ -1,7 +1,6 @@
-import { useState } from "react";
 import apiClient from "../../services/api-client";
-import { AxiosError } from "axios";
 import Cookies from "js-cookie";
+import { fetchOrReplaceCSRF } from "../../services/Cookies/CSRFToken";
 
 
 interface Response {
@@ -14,8 +13,7 @@ const useLoginUser = () => {
 
 
   const login = async (username: string, password: string) => {
-    // Not 100% Sure if this works correctly
-
+    await fetchOrReplaceCSRF();
 
     const body = {
       username,

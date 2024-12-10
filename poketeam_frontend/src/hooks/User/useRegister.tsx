@@ -1,5 +1,6 @@
 import apiClient from "../../services/api-client";
 import Cookies from "js-cookie";
+import { fetchOrReplaceCSRF } from "../../services/Cookies/CSRFToken";
 
 interface Response {
   response: string;
@@ -9,7 +10,7 @@ const useRegisterUser = () => {
 
 
   const register = async (username: string, password: string, repassword: string) => {
-    // Not 100% Sure if this works correctly
+    await fetchOrReplaceCSRF();
 
 
     const body = {
