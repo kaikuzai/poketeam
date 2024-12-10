@@ -1,0 +1,16 @@
+.teams-section {
+    flex: 3;
+    padding: 20px;
+}
+
+.teams-section h2 {
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+}
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}

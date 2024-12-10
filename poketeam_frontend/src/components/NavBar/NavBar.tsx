@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./NavBar.css";
-import useLogoutUser from "../../hooks/User/useLogout";
+import useLogoutUser from "../../hooks/UserAuthentication/useLogout";
 import { Rootstate } from "../../state/store";
 
 const NavBar: React.FC = () => {

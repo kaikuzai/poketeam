@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useRegisterUser from "../../hooks/User/useRegister";
+import useRegisterUser from "../../hooks/UserAuthentication/useRegister";
 
 interface Response {
   response: string;

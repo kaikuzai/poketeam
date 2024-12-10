@@ -1,6 +1,6 @@
 import { useParams, NavLink } from "react-router-dom";
 import "./PokemonDetailPage.css";
-import useSinglePokemon from "../../../hooks/useSinglePokmeon";
+import useSinglePokemon from "../../../hooks/PokemonInformation/useSinglePokmeon";
 
 const PokemonDetailPage = () => {
   const { pokemon_id } = useParams();

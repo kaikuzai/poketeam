@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import useTypes from "../../hooks/useTypes";
+import useTypes from "../../hooks/PokemonInformation/useTypes";
 import Select from "react-select";
 
 interface Props {

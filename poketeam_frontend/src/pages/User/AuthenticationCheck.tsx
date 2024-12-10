@@ -1,8 +1,8 @@
 import Cookies from "js-cookie";
-import useAuthorizationCheck from "../../hooks/User/useAuthorization";
+import useAuthorizationCheck from "../../hooks/UserAuthentication/useAuthorization";
 import { useEffect, useState } from "react";
-import useLoginUser from "../../hooks/User/useLogin";
-import useLogoutUser from "../../hooks/User/useLogout";
+import useLoginUser from "../../hooks/UserAuthentication/useLogin";
+import useLogoutUser from "../../hooks/UserAuthentication/useLogout";
 
 interface Response {
   name: string, 

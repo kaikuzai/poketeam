@@ -5,12 +5,14 @@ import AppIndex from "./Index";
 import PokemonDetailPage from "./components/Pages/PokemonDetailPage/PokemonDetailPage";
 import AuthenticationCheck from "./pages/User/AuthenticationCheck";
 import CSRFTokenCheck from "./pages/User/CSRFTokenCheck";
+import TeamsPage from "./pages/PokeTeam/TeamsPage/TeamsPage";
 
 function App() {
   
   return (
     <Routes>
       <Route path="/login" element={<Login />}/>
+      <Route path="/teams" element={<TeamsPage />}/>
       <Route path="/register" element={<Register />}/>
       <Route path="/auth-check" element={<AuthenticationCheck />}/>
       <Route path="/token-check" element={<CSRFTokenCheck />}/>

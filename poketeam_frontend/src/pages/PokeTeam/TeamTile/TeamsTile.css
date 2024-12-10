@@ -1,0 +1,24 @@
+.team-tile {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 2px solid #e0ebfc;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.team-tile h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.team-tile ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.team-tile li {
+    font-size: 14px;
+    color: #555;
+}

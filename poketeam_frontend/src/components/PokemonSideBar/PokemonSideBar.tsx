@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import usePokemon from "../../hooks/usePokemon";
+import usePokemon from "../../hooks/PokemonInformation/usePokemon";
 import "./PokemonSideBar.css";
 import { Rootstate } from "../../state/store";
 import { useDispatch } from "react-redux";

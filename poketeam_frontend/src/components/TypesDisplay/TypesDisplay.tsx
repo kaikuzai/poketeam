@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import usePokemon from "../../hooks/usePokemon";
+import usePokemon from "../../hooks/PokemonInformation/usePokemon";
 import "./TypesDisplay.css";
 
 interface Props {

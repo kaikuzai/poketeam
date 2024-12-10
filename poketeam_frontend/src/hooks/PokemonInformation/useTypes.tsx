@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
+import apiClient from "../../services/api-client";
 
 interface PokemonTypes {
   type_name: string;
