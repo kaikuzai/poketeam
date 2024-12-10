@@ -1,4 +1,5 @@
-<img width="1678" alt="image" src="https://github.com/user-attachments/assets/f1fd3024-2107-403f-aeac-3570298dd71c">
+<img width="1668" alt="image" src="https://github.com/user-attachments/assets/4d2c3063-13e1-4c67-94b2-6138f8b33a98">
+
 
 A full-stack application where users can create their unique first generation pokemon team. Currently only Gen 1 is available but due to modularity of the application it is very easy to add other generations.
 
