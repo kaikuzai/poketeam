@@ -1,12 +1,27 @@
 import Cookies from "js-cookie";
 import useAuthorizationCheck from "../../hooks/User/useAuthorization";
 import { useEffect, useState } from "react";
+import useLoginUser from "../../hooks/User/useLogin";
 
+interface Response {
+  name: string, 
+  request_session: object, 
+  is_authenticated: boolean, 
+  is_anonymous: boolean
+}
 
+const handleLogin = async () => {
+ const { login } = useLoginUser()
+ const response = await login('Ash', 'wachtwoord')
+ console.log(response.data)
+}
 
+const handleLogout = async () => {
+  
+}
 
 const AuthenticationCheck = () => {
-  const [authorizationStatus, setAuthorizationStatus] = useState<any>(); 
+  const [authorizationStatus, setAuthorizationStatus] = useState<Response>(); 
  
   const {fetchAuthorization} = useAuthorizationCheck()
   
@@ -44,11 +59,48 @@ const AuthenticationCheck = () => {
           Here we have the CSRF cookie: <strong>{Cookies.get("csrftoken") || "Not found"}</strong>
         </p>
         <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
-          The user who is making this request: <strong>{authorizationStatus? authorizationStatus.response : 'nddfaefull'}</strong>
+          The user who is making this request: <strong>{authorizationStatus? authorizationStatus.name : 'error'}</strong>
+        </p>
+        <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
+          user is authenticated: <strong>{authorizationStatus? String(authorizationStatus.is_authenticated) : 'error'}</strong>
+        </p>
+        <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
+          user is anonymous: <strong>{authorizationStatus? String(authorizationStatus.is_anonymous) : 'error'}</strong>
         </p>
         <p style={{ color: "#000", fontSize: "16px", lineHeight: "1.5" }}>
           Additional authentication info can go here.
         </p>
+        <div style={{ marginTop: "20px", display: "flex", gap: "10px", justifyContent: "center" }}>
+  <button
+    onClick={() => {console.log("Login clicked");
+                  handleLogin();
+    }}
+    style={{
+      padding: "10px 20px",
+      backgroundColor: "#28a745",
+      color: "#ffffff",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+    }}
+  >
+    Login
+  </button>
+  <button
+    onClick={() => console.log("Logout clicked")}
+    style={{
+      padding: "10px 20px",
+      backgroundColor: "#dc3545",
+      color: "#ffffff",
+      border: "none",
+      borderRadius: "5px",
+      cursor: "pointer",
+    }}
+  >
+    Logout
+  </button>
+</div>
+
       </div>
     </div>
   );

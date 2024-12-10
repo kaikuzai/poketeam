@@ -1,14 +1,18 @@
 import apiClient from '../../services/api-client'
 
 interface Response {
-    response: string
-}
+    name: string, 
+    request_session: object, 
+    is_authenticated: boolean, 
+    is_anonymous: boolean
+  }
 
 const useAuthorizationCheck = () => {
 
     const fetchAuthorization = async () => {
         try{
             const response = await apiClient.get<Response>('accounts/authenticated/')
+            console.log("this is the response",response.data)
             return response.data 
 
         } catch (error) {

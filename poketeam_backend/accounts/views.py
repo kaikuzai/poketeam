@@ -17,9 +17,16 @@ class CheckAuthenticatedView(APIView):
     def get(self, request, format=None):
         isAuthenticated = User.is_authenticated
         name = request.user 
+        
+
 
         if isAuthenticated:
-            return Response({'response': f'True as {name}'})
+            return Response({'name':f'{name}',
+                             'request_session': request.session,
+                             'is_authenticated': request.user.is_authenticated,
+                             'is_anonymous': request.user.is_anonymous,
+                             }
+                             , status=200)
         else:
             return Response({'response':'False'})
 
