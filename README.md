@@ -14,7 +14,7 @@ A full-stack application where users can create their unique first generation po
 - Custom API endpoints with validation
 - Automatic User Profile Class
 - User authentication & authorization
-- - Complete Login/Registration flows 
+- Complete Login/Registration flows 
 - You can log into an account that you've created 
 - Make a pokemon team!
 
