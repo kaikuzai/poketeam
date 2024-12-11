@@ -1,23 +1,31 @@
 import { Route, Routes } from "react-router-dom";
-import Login from "./pages/User/Login";
-import Register from "./pages/User/Register";
-import AppIndex from "./Index";
-import PokemonDetailPage from "./components/Pages/PokemonDetailPage/PokemonDetailPage";
-import AuthenticationCheck from "./pages/User/AuthenticationCheck";
-import CSRFTokenCheck from "./pages/User/CSRFTokenCheck";
-import TeamsPage from "./pages/PokeTeam/TeamsPage/TeamsPage";
+import { useSelector } from "react-redux";
+import { Rootstate } from "./state/store";
+import { routes } from "./routes/routeConfig";
+import ProtectedRoute from "./routes/protectedRoute";
 
 function App() {
-  
+  const isAuthenticated = useSelector(
+    (state: Rootstate) => state.authorization.authorization.isAuthenticated
+  );
+
   return (
     <Routes>
-      <Route path="/login" element={<Login />}/>
-      <Route path="/teams" element={<TeamsPage />}/>
-      <Route path="/register" element={<Register />}/>
-      <Route path="/auth-check" element={<AuthenticationCheck />}/>
-      <Route path="/token-check" element={<CSRFTokenCheck />}/>
-      <Route path="/" element={<AppIndex />} />
-      <Route path="/detail/:pokemon_id" element={<PokemonDetailPage />} />
+      {routes.map(({ path, element: Element, isProtected }) => (
+        <Route
+          key={path}
+          path={path}
+          element={
+            isProtected ? (
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Element />
+              </ProtectedRoute>
+            ) : (
+              <Element />
+            )
+          }
+        />
+      ))}
     </Routes>
   );
 }

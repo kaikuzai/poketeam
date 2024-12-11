@@ -2,7 +2,7 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import { fetchOrReplaceCSRF } from "../../services/Cookies/CSRFToken";
 
-const CSRFTokenCheck = () => {
+const CSRFTokenCheck: React.FC = () => {
   const [token, setToken] = useState<string>()
 
   const removeToken = async () => {

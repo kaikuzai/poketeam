@@ -11,7 +11,7 @@ interface Response {
   is_anonymous: boolean
 }
 
-const AuthenticationCheck = () => {
+const AuthenticationCheck: React.FC = () => {
   const [authorizationStatus, setAuthorizationStatus] = useState<Response>(); 
   const {fetchAuthorization} = useAuthorizationCheck()
   const { login } = useLoginUser();

@@ -2,7 +2,7 @@ import { useParams, NavLink } from "react-router-dom";
 import "./PokemonDetailPage.css";
 import useSinglePokemon from "../../../hooks/PokemonInformation/useSinglePokmeon";
 
-const PokemonDetailPage = () => {
+const PokemonDetailPage: React.FC = () => {
   const { pokemon_id } = useParams();
 
   const numeric_pokemon_id = Number(pokemon_id);
