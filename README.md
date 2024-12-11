@@ -14,12 +14,12 @@ A full-stack application where users can create their unique first generation po
 - Custom API endpoints with validation
 - Automatic User Profile Class
 - User authentication & authorization
+- - Complete Login/Registration flows 
 - You can log into an account that you've created 
 - Make a pokemon team!
 
 ## Future features 
 - Add user Profile Page (custom pictures?)
-- Complete Login/Registration flows 
 - Add evolution chain to pokemon detail pages
 - Context manager for caching
 - Save pokemon team to your user profile
