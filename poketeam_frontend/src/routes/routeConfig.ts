@@ -1,4 +1,3 @@
-import { FC, ReactElement } from "react";
 import Login from "../pages/User/Login";
 import Register from "../pages/User/Register";
 import AuthenticationCheck from "../pages/User/AuthenticationCheck";
@@ -8,7 +7,7 @@ import PokemonDetailPage from "../components/Pages/PokemonDetailPage/PokemonDeta
 
 interface RouteConfig {
     path: string,
-    element: FC,
+    element: React.FC,
     isProtected: boolean,
 
 }
